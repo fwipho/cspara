@@ -40,4 +40,16 @@ paramgr.AddSynonym("restore", "", "rest");
 
 After the structure is established, the application can try to parse text passed-in.
 
+paramgr.Parse(@"new {-i }some """"thing   here -j{my var} -h-k  --install {some thi}");
+paramgr.AnalyseParts();
+Console.Write(paramgr.GetPartsInfo());
+Console.WriteLine();
+Console.WriteLine(paramgr.GetPartInfo("new"));
+Console.WriteLine(paramgr.GetPartInfo("new -i"));
+Console.WriteLine(paramgr.GetPartInfo("new -h"));
+Console.WriteLine(paramgr.GetPartInfo("--help"));
+Console.WriteLine(paramgr.GetPartInfo("new --help"));
+Console.WriteLine(paramgr.GetPartInfo("new -h"));
+
+
 
